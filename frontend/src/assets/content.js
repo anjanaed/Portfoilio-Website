@@ -1,0 +1,1 @@
+export const introduction=`The morning sun peeked through the trees,casting a warm glow across the quiet meadow. Birds chirped softly, filling the air with gentle music. Dew sparkled on each blade of grass, creating a magical scene. Slowly, life stirred, as animals began to awaken and explore the peaceful, serene landscape.`
