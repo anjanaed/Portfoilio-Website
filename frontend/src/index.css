@@ -16,5 +16,11 @@
   font-family: "Itim", cursive;
   font-size: 3vw;
   color: white;
+  transition-duration: 2s;
+}
+
+#logo:hover{
+  color:rgb(113, 26, 113);
+
 }
 

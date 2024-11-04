@@ -3,6 +3,8 @@ import Navbar from './components/navbar'
 import Intro from './components/intro'
 import About from './components/about'
 import Techs from './components/techs'
+import Educationn from './components/education'
+import Project from './components/projects'
 
 const App=()=>{
 
@@ -16,6 +18,8 @@ const App=()=>{
         <Intro/>
         <About/>
         <Techs/>
+        <Educationn/>
+        <Project/>
       </div>
     </div>
     
