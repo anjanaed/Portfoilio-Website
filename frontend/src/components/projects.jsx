@@ -16,7 +16,7 @@ const Project=()=>{
                         <h6 className="mb-2 font-semibold">{project.title}</h6>
                         <p className="mb-4 text-neutral-400">{project.description}</p>
                         {project.tech.map((tec,index)=>(
-                            <span className="mr-2 rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-purple-900" key={index}>{tec}</span>
+                            <span className="mr-2 rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-purple-500" key={index}>{tec}</span>
                         ))}
                         </motion.div>
                         
