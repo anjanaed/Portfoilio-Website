@@ -23,17 +23,17 @@ const Intro=()=>{
                         <motion.h1 variants={motions(0.2)} initial="pre" animate="post" className="pb-16 text-4xl font-thin tracking-tight lg:mt-16 lg:text-7xl">
                             Anjana Edirisinghe
                         </motion.h1>
-                        <motion.span variants={motions(0.6)} initial="pre" animate="post" className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-3xl tracking-tight text-transparent">
+                        <motion.span variants={motions(0.6)} initial="pre" animate="post" className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-3xl tracking-tight text-transparent text-center">
                             Student Blockchain Developer
                         </motion.span>
-                        <motion.p variants={motions(1)} initial="pre" animate="post" className="my-2 max-w-xl py-6 font-light tracking-tighter text-justify">
+                        <motion.p variants={motions(1)} initial="pre" animate="post" className="my-2 max-w-xl py-6 font-light tracking-tighter lg:text-justify">
                             {introduction}
                         </motion.p>
                     </div>
                 </div>
                 <div className="w-full lg:w-45 lg:p-8">
                 <div className="flex justify-center">
-                    <motion.img whileHover={{scale:1.02,transition:{duration:0.5,ease:"easeIn"}}} variants={antiMotions(1.5)} initial="pre" animate="postimg"className="rounded-2xl" src={profilePicture}/> 
+                    <motion.img whileHover={{scale:1.02,transition:{duration:0.5,ease:"easeIn"}}} variants={antiMotions(1.5)} initial="pre" animate="postimg"className="rounded-full" src={profilePicture}/> 
                 </div>
                 </div>
             </div>
