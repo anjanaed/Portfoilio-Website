@@ -28,7 +28,7 @@ const Footer = () => {
           className="w-full max-w-2xl lg:w-1/2 p-5 "
         >
             <div className=" lg:w-1/2 text-center m-auto py-8 rounded-2xl border-4 border-gray-400 overflow-hidden">
-            <form action="https://formsubmit.co/anjanaape2002@gmail.com" method="POST">
+            <form target="_blank" action="https://formsubmit.co/anjanaape2002@gmail.com" method="POST">
             <input className="mb-4 bg-neutral-900 border-2 border-purple-400 rounded-2xl p-2 w-5/6" type="text" name="name" required placeholder="Name" />
             <br />
             <input className="mb-4 bg-neutral-900 border-2 border-purple-400 rounded-2xl p-2 w-5/6" type="email" name="email" required placeholder="Email" />
