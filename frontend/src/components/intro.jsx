@@ -19,7 +19,7 @@ const Intro=()=>{
         <div className="border-b border-neutral-900 pb-4 lg:mb-35">
             <div className="flex flex-wrap">
                 <div className="w-full lg:w-1/2">
-                    <div className="flex flex-col items-center lg:items-start">
+                    <div className="flex flex-col items-center lg:items-start overflow-hidden">
                         <motion.h1 variants={motions(0.2)} initial="pre" animate="post" className="pb-16 text-4xl font-thin tracking-tight lg:mt-16 lg:text-7xl">
                             Anjana Edirisinghe
                         </motion.h1>

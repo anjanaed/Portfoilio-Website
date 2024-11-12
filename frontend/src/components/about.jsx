@@ -9,7 +9,7 @@ const About=()=>{
                 About
                 <span className="text-neutral-500"> Me</span>
             </h2>
-            <div className="flex flex-wrap">
+            <div className="overflow-hidden flex flex-wrap">
                 <motion.div whileInView={{opacity:1,x:0}} initial={{opacity:0,x:-100}} transition={{duration:0.8, delay:0.2}} className="w-full lg:w-2/5 lg:p-8">
                     <div className=" flex items-center justify-center">
                         <img width={300} src={profilePicture}/>
