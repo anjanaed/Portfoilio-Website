@@ -24,7 +24,7 @@ const Intro=()=>{
                             Anjana Edirisinghe
                         </motion.h1>
                         <motion.span variants={motions(0.6)} initial="pre" animate="post" className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text lg:text-3xl text-2xl tracking-tight text-transparent text-center">
-                            Student Blockchain Developer
+                            Student Full Stack Developer
                         </motion.span>
                         <motion.p variants={motions(1)} initial="pre" animate="post" className="my-2 max-w-xl py-6 font-light tracking-tighter lg:text-justify">
                             {introduction}
