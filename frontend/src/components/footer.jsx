@@ -41,7 +41,7 @@ const Footer = () => {
           
         </motion.div>
       </div>
-      <span className="pb-5 mt-auto text-xs">Copyright &#169; 2024 by Anjana - All Rights Reserved.</span>
+      <span className="pb-5 mt-auto text-xs">Copyright &#169; 2025 by Anjana - All Rights Reserved.</span>
     </div>
   );
 };
