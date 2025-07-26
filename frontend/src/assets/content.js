@@ -2,7 +2,7 @@ import project2 from "./projects/project2.png";
 import project3 from "./projects/port.png";
 import project4 from "./projects/block.jpg";
 import project5 from "./projects/empsync.png";
-import project6 from "./projects/Pharmacy.jpg";
+import project6 from "./projects/pharmacy.jpg";
 import project7 from "./projects/laravel.jpg";
 
 export const about = `An ambitious IT undergraduate at the University of Moratuwa, I specialize in full-stack web development with a focus on building scalable, efficient, and user-friendly applications. My work spans both frontend and backend development, combining modern frameworks and best practices to deliver high-quality software solutions. Alongside my core expertise, I have hands-on experience in blockchain development, particularly with Solidity and decentralized application design, allowing me to explore innovative solutions at the edge of web and blockchain technologies. I’m driven by a commitment to clean architecture, continuous learning, and impactful engineering.`;
