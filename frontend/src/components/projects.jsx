@@ -36,7 +36,7 @@ const Project = () => {
               className="w-full max-w-xl lg:w-3/4"
             >
               <h6 className="mb-2 font-semibold">{project.title}</h6>
-              <p className="mb-4 text-neutral-400">{project.description}</p>
+              <p className="mb-4 text-neutral-400 text-justify">{project.description}</p>
               {project.tech.map((tec, index) => (
                 <span
                   className="mr-2 rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-purple-500"
@@ -52,7 +52,17 @@ const Project = () => {
                   rel="noopener noreferrer"
                   className="inline-block mt-4 text-blue-500 hover:underline"
                 >
-                  Visit Project
+                  GitHub Repo
+                </a>
+              )}
+              {project.live && (
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-4 ml-4 text-green-500 hover:underline"
+                >
+                  Live Project
                 </a>
               )}
             </motion.div>
