@@ -4,6 +4,7 @@ import project4 from "./projects/block.jpg";
 import project5 from "./projects/empsync.png";
 import project6 from "./projects/pharmacy.jpg";
 import project7 from "./projects/laravel.jpg";
+import project8 from "./projects/degov.png";
 
 export const about = `An ambitious IT undergraduate at the University of Moratuwa, I specialize in full-stack web development with a focus on building scalable, efficient, and user-friendly applications. My work spans both frontend and backend development, combining modern frameworks and best practices to deliver high-quality software solutions. Alongside my core expertise, I have hands-on experience in blockchain development, particularly with Solidity and decentralized application design, allowing me to explore innovative solutions at the edge of web and blockchain technologies. I’m driven by a commitment to clean architecture, continuous learning, and impactful engineering.`;
 
@@ -36,6 +37,7 @@ export const Projects = [
       "EmpSync is a SaaS-based employee management system designed to streamline HR processes such as attendance tracking, leave management, and payroll generation. Built with modern technologies, it offers an intuitive interface and robust backend to help organizations efficiently manage their workforce data.",
     tech: ["React", "NestJs", "PostgreSQL", "Prisma"],
     link: "https://github.com/anjanaed/EmpSync",
+    live: "https://empsync.duckdns.org/" 
     
   },
   {
@@ -45,6 +47,16 @@ export const Projects = [
       "A token-based queue management system for pharmacies that automates customer prescriptions handling, employee shift tracking, and order processing. It improves service efficiency by generating queue tokens, displaying real-time order status, and providing detailed employee performance reports.",
     tech: ["React", "Node", "MongoDB"],
     link: "https://github.com/anjanaed/Pharmacy-Queue-Management-System",
+    live: "https://pharmy.ddns.net/" 
+  },
+    {
+    title: "Decentralized Transparent Governance Platform",
+    img: project8,
+    description:
+      "A full-stack blockchain platform designed to enhance government transparency and citizen engagement. The system enables secure democratic voting, digital petitions, whistleblowing, policy management, and public spending tracking. Built on a microservice architecture, it separates blockchain interactions from general application logic, ensuring scalability, reliability, and seamless synchronization with decentralized storage and Web3 wallet integration on the Sepolia testnet.",
+    tech: ["Ballerina", "React", "Solidity", "PostgreSQL"],
+    link: "https://github.com/Imashanilupul/iwb25-089-syntaxsquad",
+    live: "https://degov.ddns.net/" 
   },
   {
     title: "Portfolio",
@@ -53,6 +65,7 @@ export const Projects = [
       "Built my own portfolio website which you are currently looking at. Used react frontend technology with framer library",
     tech: ["React", "Framer", "Tailwind"],
     link: "https://github.com/anjanaed/Portfoilio-Website",
+    live: "https://anji.online/" 
   },
   {
     title: "Learning Management System (Laravel)",
@@ -76,6 +89,7 @@ export const Projects = [
         description:"Recreated Apple official home page and the support page only using HTML,CSS,JS",
         tech:["HTML","CSS","Javascript"],
     link: "https://github.com/anjanaed/apple.com-clone",
+    live: "https://anjanaed.github.io/apple.com-clone" 
     },
   
 

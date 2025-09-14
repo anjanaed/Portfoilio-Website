@@ -17,17 +17,30 @@ const antiMotions=(delay)=>({
 const Intro=()=>{
     return(
         <div className="border-b border-neutral-900 pb-4 lg:mb-35">
-            <div className="flex flex-wrap">
-                <div className="w-full lg:w-1/2">
-                    <div className="flex mb-3 flex-col max-w-[36rem] items-center lg:items-start overflow-hidden">
+            <div className="flex flex-wrap justify-center lg:justify-between lg:items-center">
+                <div className="w-full md:w-10/12 lg:w-1/2">
+                    <div className="flex mb-3 flex-col w-full max-w-[36rem] mx-auto items-center lg:items-start overflow-hidden px-4 md:px-6">
                         <motion.h1
                             variants={motions(0.2)}
                             initial="pre"
                             animate="post"
-                            className="pb-16 text-4xl font-thin tracking-tight lg:mt-16 lg:text-7xl"
+                            className="pb-8 lg:pb-16 text-4xl font-thin tracking-tight lg:mt-16 lg:text-7xl text-center lg:text-left"
                         >
                             Anjana Edirisinghe
                         </motion.h1>
+                        {/* Mobile image directly under the name */}
+                        <div className="w-full block md:hidden">
+                            <div className="flex justify-center">
+                                <motion.img
+                                    whileHover={{ scale: 1.02, transition: { duration: 0.5, ease: "easeIn" } }}
+                                    variants={antiMotions(0.8)}
+                                    initial="pre"
+                                    animate="postimg"
+                                    className="rounded-full mb-4"
+                                    src={profilePicture}
+                                />
+                            </div>
+                        </div>
                         <motion.span
                             variants={motions(0.6)}
                             initial="pre"
@@ -40,7 +53,7 @@ const Intro=()=>{
                             variants={motions(1)}
                             initial="pre"
                             animate="post"
-                            className="my-2 max-w-xl py-6 font-light tracking-tighter lg:text-justify"
+                            className="my-2 max-w-xl py-6 font-light tracking-tighter text-justify"
                         >
                             {introduction}
                         </motion.p>
@@ -60,8 +73,8 @@ const Intro=()=>{
                         </div>
                     </div>
                 </div>
-                <div className="w-full lg:w-45 lg:p-8">
-                <div className="flex justify-center">
+                <div className="w-full md:w-10/12 lg:w-1/2 lg:p-8 lg:flex lg:items-center">
+                <div className="hidden md:flex justify-center">
                     <motion.img whileHover={{scale:1.02,transition:{duration:0.5,ease:"easeIn"}}} variants={antiMotions(1.5)} initial="pre" animate="postimg"className="rounded-full" src={profilePicture}/> 
                 </div>
                 </div>
