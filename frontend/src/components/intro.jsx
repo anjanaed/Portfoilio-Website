@@ -19,16 +19,45 @@ const Intro=()=>{
         <div className="border-b border-neutral-900 pb-4 lg:mb-35">
             <div className="flex flex-wrap">
                 <div className="w-full lg:w-1/2">
-                    <div className="flex flex-col items-center lg:items-start overflow-hidden">
-                        <motion.h1 variants={motions(0.2)} initial="pre" animate="post" className="pb-16 text-4xl font-thin tracking-tight lg:mt-16 lg:text-7xl">
+                    <div className="flex mb-3 flex-col max-w-[36rem] items-center lg:items-start overflow-hidden">
+                        <motion.h1
+                            variants={motions(0.2)}
+                            initial="pre"
+                            animate="post"
+                            className="pb-16 text-4xl font-thin tracking-tight lg:mt-16 lg:text-7xl"
+                        >
                             Anjana Edirisinghe
                         </motion.h1>
-                        <motion.span variants={motions(0.6)} initial="pre" animate="post" className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text lg:text-3xl text-2xl tracking-tight text-transparent text-center">
+                        <motion.span
+                            variants={motions(0.6)}
+                            initial="pre"
+                            animate="post"
+                            className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text lg:text-3xl text-2xl tracking-tight text-transparent text-center"
+                        >
                             Student Full Stack Developer
                         </motion.span>
-                        <motion.p variants={motions(1)} initial="pre" animate="post" className="my-2 max-w-xl py-6 font-light tracking-tighter lg:text-justify">
+                        <motion.p
+                            variants={motions(1)}
+                            initial="pre"
+                            animate="post"
+                            className="my-2 max-w-xl py-6 font-light tracking-tighter lg:text-justify"
+                        >
                             {introduction}
                         </motion.p>
+                        <div className="w-full flex flex-col items-center">
+                            <motion.a
+                                variants={motions(1.2)}
+                                initial="pre"
+                                animate="post"
+                                whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+                                whileTap={{ scale: 0.98 }}
+                                href="/Resume - Anjana Edirisinghe .pdf"
+                                download="Anjana_Edirisinghe_Resume.pdf"
+                                className="mt-2 mb-6 flex w-[15rem] sm:max-w-sm justify-center rounded-full bg-gradient-to-r from-pink-500 via-indigo-500 to-purple-600 px-8 py-3 text-white shadow-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-xl hover:from-pink-600 hover:via-slate-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                            >
+                                Download Resume
+                            </motion.a>
+                        </div>
                     </div>
                 </div>
                 <div className="w-full lg:w-45 lg:p-8">
