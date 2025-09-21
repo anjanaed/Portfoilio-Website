@@ -88,9 +88,9 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Contact
 
-- **Email**: [Your email here]
-- **LinkedIn**: [Your LinkedIn profile]
-- **GitHub**: [https://github.com/anjanaed](https://github.com/anjanaed)
+- **Email**: anjanaape@gmail.com
+- **LinkedIn**: https://www.linkedin.com/in/anjana-ed
+- **GitHub**: https://github.com/anjanaed
 
 ---
 
