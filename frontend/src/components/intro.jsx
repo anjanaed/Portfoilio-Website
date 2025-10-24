@@ -57,7 +57,7 @@ const Intro=()=>{
                         >
                             {introduction}
                         </motion.p>
-                        <div className="w-full flex flex-col items-center">
+                        {/* <div className="w-full flex flex-col items-center">
                             <motion.a
                                 variants={motions(1.2)}
                                 initial="pre"
@@ -70,7 +70,7 @@ const Intro=()=>{
                             >
                                 Download Resume
                             </motion.a>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className="w-full md:w-10/12 lg:w-1/2 lg:p-8 lg:flex lg:items-center">
