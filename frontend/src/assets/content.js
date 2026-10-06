@@ -94,3 +94,30 @@ export const Projects = [
   
 
 ];
+
+// All copy and links for the portfolio live here.
+// A link set to null is hidden on the page, so fill it in to show it.
+
+export const links = {
+  github: "https://github.com/anjanaed",
+  linkedin: "https://www.linkedin.com/in/anjana-ed/",
+  medium: "https://medium.com/@anjanaape",
+  email: "anjanaape@gmail.com",
+
+  stryderVault: null,
+  voiceDocs: null,
+  voiceRepo: "https://github.com/anjanaed/pipeline",
+  defundLive: null,
+  defundRepo: null,
+  degovLive: "https://degov.ddns.net/",
+  degovRepo: "https://github.com/Imashanilupul/iwb25-089-syntaxsquad",
+  empsyncLive: "https://empsync.duckdns.org/",
+  empsyncRepo: "https://github.com/anjanaed/EmpSync",
+};
+
+export const navSections = [
+  { id: "profile", label: "Profile" },
+  { id: "work", label: "Projects" },
+  { id: "journey", label: "Journey" },
+  { id: "contact", label: "Contact" },
+];
