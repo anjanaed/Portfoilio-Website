@@ -121,3 +121,10 @@ export const navSections = [
   { id: "journey", label: "Journey" },
   { id: "contact", label: "Contact" },
 ];
+
+export const heroChips = [
+  { label: "Blockchain", style: { left: "2%", top: "17%", transform: "translateZ(110px)" }, delay: "0s" },
+  { label: "SaaS", style: { right: 0, top: "31%", transform: "translateZ(150px)" }, delay: "-2s" },
+  { label: "Full-Stack", style: { left: "8%", top: "73%", transform: "translateZ(160px)" }, delay: "-4s" },
+  { label: "Integration", style: { right: "10%", top: "84%", transform: "translateZ(90px)" }, delay: "-5.5s" },
+];

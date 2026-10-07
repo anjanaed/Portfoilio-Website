@@ -145,6 +145,116 @@ section[id] { scroll-margin-top: 24px; }
 .rise-2 { animation-delay: .25s; }
 .rise-3 { animation-delay: .4s; }
 
+/* ---------- hero ---------- */
+.hero { position: relative; z-index: 2; }
+.hero-row {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px;
+  min-height: 808px; padding-top: 24px; padding-bottom: 40px;
+}
+.hero-copy { flex: 1 1 560px; max-width: 660px; margin-top: 64px; }
+.hero-intro { display: flex; flex-direction: column; align-items: flex-start; gap: 30px; }
+.accent-bar { width: 56px; height: 3px; background: var(--accent); display: block; }
+.hero-name {
+  display: block; font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(46px, 6vw, 88px); font-weight: 400; letter-spacing: -.02em; line-height: .96; color: #fff;
+}
+.hero-hello { display: block; color: var(--muted); font-style: italic; font-size: .5em; margin-bottom: 6px; letter-spacing: 0; }
+.namebtn {
+  display: block; margin: 0; padding: 0; border: 0; background: none;
+  color: inherit; font: inherit; letter-spacing: inherit; line-height: inherit; text-align: left;
+  cursor: url('./assets/name-cursor.png') 24 24, pointer;
+  text-decoration: underline dotted rgba(255, 77, 109, .75) 3px;
+  text-underline-offset: 10px;
+  transition: text-decoration-color .2s;
+}
+.namebtn[aria-pressed="true"] { text-decoration-color: var(--accent); text-decoration-style: solid; }
+.hero-title { margin-top: 48px; font-weight: 800; font-size: clamp(34px, 4.2vw, 60px); line-height: 1.04; letter-spacing: -.03em; text-wrap: balance; }
+.hero-lede { margin-top: 40px; max-width: 560px; font-size: 18px; color: var(--soft); text-wrap: pretty; }
+.hero-ctas { margin-top: 56px; display: flex; flex-wrap: wrap; gap: 14px; }
+
+/* ---------- 3D hero scene (pure CSS) ---------- */
+.stage-wrap { width: 520px; height: 520px; flex: 0 0 auto; }
+.stage { position: relative; width: 520px; height: 520px; perspective: 1300px; }
+.halo {
+  position: absolute; left: 50%; top: 50%; width: 460px; height: 460px; margin: -230px 0 0 -230px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 77, 109, .30), rgba(124, 92, 255, .22) 45%, transparent 70%);
+  filter: blur(18px); animation: breathe 6s ease-in-out infinite;
+}
+@keyframes breathe { 0%, 100% { transform: scale(.94); opacity: .8; } 50% { transform: scale(1.06); opacity: 1; } }
+.tilt { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform .35s ease-out; }
+.cubewrap {
+  position: absolute; left: 50%; top: 50%; width: 0; height: 0;
+  transform-style: preserve-3d; visibility: visible;
+  transition: transform .95s var(--ease-in-out), visibility 0s linear 0s;
+}
+.photo-on .cubewrap {
+  transform: rotateY(180deg) scale(.55); visibility: hidden;
+  transition: transform .95s var(--ease-in-out), visibility 0s linear .95s;
+}
+.cube .face { transition: opacity .55s ease .35s; }
+.photo-on .cube .face { opacity: 0; transition: opacity .5s ease .2s; }
+.plate {
+  position: absolute; left: 50%; top: 50%; width: 290px; height: 290px; margin: -145px 0 0 -145px;
+  border-radius: 50%; overflow: hidden; border: 1px solid rgba(225, 218, 255, .5); background: #0B1033;
+  backface-visibility: hidden; opacity: 0; visibility: hidden; transform: rotateY(-150deg) scale(.55);
+  transition: transform .9s var(--ease-in-out), opacity .45s ease .25s, visibility 0s linear .9s;
+}
+.plate img { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.7); transform-origin: 49% 33%; }
+.photo-on .plate {
+  opacity: 1; visibility: visible; transform: none;
+  transition: transform .95s var(--ease-in-out) .1s, opacity .5s ease .35s, visibility 0s linear 0s;
+}
+.spin { position: absolute; left: 0; top: 0; width: 0; height: 0; transform-style: preserve-3d; animation: spin3d 24s linear infinite; }
+@keyframes spin3d { from { transform: rotateX(-22deg) rotateY(0deg); } to { transform: rotateX(-22deg) rotateY(360deg); } }
+.cube { position: absolute; transform-style: preserve-3d; }
+.cube.outer { width: 210px; height: 210px; left: -105px; top: -105px; }
+.cube.core { width: 84px; height: 84px; left: -42px; top: -42px; animation: coreturn 9s linear infinite reverse; }
+@keyframes coreturn { from { transform: rotateX(0) rotateY(0) rotateZ(0); } to { transform: rotateX(360deg) rotateY(360deg) rotateZ(0); } }
+.face {
+  position: absolute; inset: 0; border: 1px solid rgba(235, 230, 255, .42);
+  background: linear-gradient(135deg, rgba(124, 92, 255, .22), rgba(255, 255, 255, .04) 60%, rgba(255, 77, 109, .10));
+}
+.outer .f1 { transform: rotateY(0deg) translateZ(105px); }
+.outer .f2 { transform: rotateY(90deg) translateZ(105px); }
+.outer .f3 { transform: rotateY(180deg) translateZ(105px); }
+.outer .f4 { transform: rotateY(-90deg) translateZ(105px); }
+.outer .f5 { transform: rotateX(90deg) translateZ(105px); }
+.outer .f6 { transform: rotateX(-90deg) translateZ(105px); }
+.core .face { border-color: rgba(255, 255, 255, .8); background: var(--accent); opacity: .92; }
+.core .f1 { transform: rotateY(0deg) translateZ(42px); }
+.core .f2 { transform: rotateY(90deg) translateZ(42px); }
+.core .f3 { transform: rotateY(180deg) translateZ(42px); }
+.core .f4 { transform: rotateY(-90deg) translateZ(42px); }
+.core .f5 { transform: rotateX(90deg) translateZ(42px); }
+.core .f6 { transform: rotateX(-90deg) translateZ(42px); }
+.ring { position: absolute; left: 50%; top: 50%; border-radius: 50%; border: 1px solid rgba(235, 230, 255, .26); transform-style: preserve-3d; }
+.ring::after {
+  content: ""; position: absolute; left: 50%; top: -5px; width: 10px; height: 10px; margin-left: -5px;
+  border-radius: 50%; background: var(--accent); box-shadow: 0 0 18px 3px var(--accent);
+}
+.ringA { width: 400px; height: 400px; margin: -200px 0 0 -200px; animation: ringA 14s linear infinite; }
+.ringB {
+  width: 470px; height: 470px; margin: -235px 0 0 -235px;
+  border-style: dashed; border-color: rgba(180, 170, 255, .3); animation: ringB 20s linear infinite;
+}
+.ringB::after { background: #fff; box-shadow: 0 0 16px 2px #fff; }
+@keyframes ringA { from { transform: rotateX(74deg) rotateZ(0deg); } to { transform: rotateX(74deg) rotateZ(360deg); } }
+@keyframes ringB { from { transform: rotateX(62deg) rotateY(-26deg) rotateZ(360deg); } to { transform: rotateX(62deg) rotateY(-26deg) rotateZ(0deg); } }
+.chip3d { position: absolute; transform-style: preserve-3d; }
+.chipin {
+  display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 999px;
+  border: 1px solid rgba(190, 180, 255, .32); background: rgba(14, 10, 44, .86); color: var(--ink);
+  font-size: 12px; letter-spacing: .04em; animation: floaty 7s ease-in-out infinite;
+}
+.chipin i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); display: block; }
+@keyframes floaty { 0%, 100% { transform: translateY(-8px); } 50% { transform: translateY(10px); } }
+.floor {
+  position: absolute; left: 50%; bottom: 34px; width: 360px; height: 70px; margin-left: -180px; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(255, 77, 109, .38), transparent 70%);
+  filter: blur(10px); animation: breathe 6s ease-in-out infinite; transition: opacity .6s ease;
+}
+.photo-on .floor { opacity: 0; }
+
 /* ---------- hover effects ---------- */
 .btn-red:hover { transform: translateY(-3px); }
 .btn-light:hover { transform: translateY(-3px); background: #fff; }
