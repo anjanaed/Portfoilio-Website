@@ -1,6 +1,6 @@
 import Navbar from "./components/navbar";
 import Hero from "./components/hero";
-import About from "./components/about";
+import Profile from "./components/profile";
 import Techs from "./components/techs";
 import Educationn from "./components/education";
 import Project from "./components/projects";
@@ -16,9 +16,9 @@ const App = () => (
     <Navbar />
     <main>
       <Hero />
+      <Profile />
       {/* old sections, moving these over one by one */}
       <div className="container mx-auto px-7">
-        <About />
         <Techs />
         <Educationn />
         <Project />

@@ -128,3 +128,22 @@ export const heroChips = [
   { label: "Full-Stack", style: { left: "8%", top: "73%", transform: "translateZ(160px)" }, delay: "-4s" },
   { label: "Integration", style: { right: "10%", top: "84%", transform: "translateZ(90px)" }, delay: "-5.5s" },
 ];
+
+export const problems = [
+  {
+    text: "When protecting video content against illegal downloads, paying enterprise-grade pricing is rarely necessary unless you are guarding top-secret state intelligence. I analyzed the real threat model, casual users leveraging browser extensions or re-uploading content for profit, and built a cost-effective Digital Rights Management solution from scratch. Instead of relying on expensive cloud infrastructure like AWS, I engineered a custom dynamic compute program on a cheaper provider to keep operational costs low.",
+    tags: ["Threat modelling", "DRM", "Cost-efficient infra"],
+  },
+  {
+    text: "When real-time audio streams overwhelm an agent's reasoning loop, running everything in a single runtime is usually the culprit. I prototyped three architectures before splitting the workload cleanly, Python and LiveKit to handle heavy WebRTC media, STT, and TTS streams, and a standalone runtime strictly for agentic orchestration. After refactoring state synchronization and payload bindings between the two runtimes, the pipeline stayed responsive under load.",
+    tags: ["Voice AI Agent", "Low Latency Communication", "Pipeline Orchestration", "Integration"],
+  },
+  {
+    text: "Decentralized crowdfunding platforms frequently fail because releasing 100% of capital upfront exposes contributors to abandonment and fraud. I came up with the idea to build DeFund to eliminate this trust gap by embedding financial accountability directly into the protocol. The core solution utilizes Solidity smart contracts for secure escrow, IPFS for immutable proof-of-work validation, and contributor-weighted voting to release funds incrementally only upon verified milestone completion.",
+    tags: ["Transparency", "Decentralization", "Secured Fund Management"],
+  },
+  {
+    text: "Public trust in government operations is routinely undermined by a lack of transparency, hidden budget allocations, and opaque decision-making. We built DeGov, a decentralized governance platform leveraging blockchain technology and smart contracts to enforce transparency and state accountability. The core solution provides public visibility into national budgets, development fund distributions, and citizen petitions, backed by a dual-layer architecture featuring automated blockchain synchronization to audit and protect off-chain databases against unauthorized tampering. Even though government agencies rarely adopt solutions of this scale, this project won a competitive hackathon.",
+    tags: ["Governance Transparency", "Immutable Records", "Blockchains"],
+  },
+];
