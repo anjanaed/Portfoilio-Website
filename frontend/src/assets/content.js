@@ -147,3 +147,53 @@ export const problems = [
     tags: ["Governance Transparency", "Immutable Records", "Blockchains"],
   },
 ];
+
+export const vaultNodes = [
+  { step: "01", label: "Upload", sub: "Resumable uploads" },
+  { step: "02", label: "Transcode", sub: "Adaptive quality ladder" },
+  { step: "03", label: "Encrypt", sub: "Rotating content keys" },
+  { step: "04", label: "Edge Server", sub: "Served from the edge" },
+  { step: "05", label: "Play", sub: "Watermarked player" },
+];
+
+export const vaultFeatures = [
+  {
+    title: "Leak-resistant encryption",
+    body: "Every video is encrypted with keys that rotate every few minutes, so one leaked key exposes only a short stretch of a video, never the whole thing.",
+  },
+  {
+    title: "Zero licensing fees",
+    body: "Key management is self-hosted, so protection adds no per-viewer cost. In a modelled analysis, a vendor DRM service would have cut gross margin from about 87% to about 64%.",
+  },
+  {
+    title: "Fast, elastic delivery",
+    body: "Encrypted video is served from the edge instead of the main server, and extra processing capacity is rented only while there is a backlog. Measured encode speedups ranged from 1.07× to 1.69× depending on content.",
+  },
+  {
+    title: "Traceable playback",
+    body: "A moving watermark carries the viewer's identity, each viewer plays on one device at a time, and watch time is metered from verified delivery, not from client reports. Reworking the first token exchange cut it from 27 to 18 database queries, about a third fewer.",
+  },
+];
+
+export const voicePoints = [
+  {
+    title: "Streaming, not buffering",
+    body: "Reworked the Ballerina WebSocket adapter from full-buffer emission to streaming sentence detection, so speech synthesis can start earlier in each reply.",
+  },
+  {
+    title: "Latency traced to the mesh",
+    body: "Per-turn profiling of VAD, STT, LLM and TTS showed 20 to 100 second stalls on Choreo against milliseconds locally, caused by the sidecar and network layer, not the models.",
+  },
+  {
+    title: "Stability under load",
+    body: "Found event-loop blocking behind STT queue growth, traced OOM kills to eager model preloading, and reviewed a Kubernetes layout for SFU pods, Redis and worker placement.",
+  },
+];
+
+export const voiceSteps = [
+  { title: "Client", sub: "LiveKit Connection" },
+  { title: "Voice Activity Detection", sub: "Silero" },
+  { title: "Speech to Text", sub: "Deepgram / ElevenLabs" },
+  { title: "LLM", sub: "Via Ballerina Adapter" },
+  { title: "Text to Speech", sub: "Deepgram / ElevenLabs" },
+];

@@ -1,9 +1,9 @@
 import Navbar from "./components/navbar";
 import Hero from "./components/hero";
 import Profile from "./components/profile";
+import Projects from "./components/projects";
 import Techs from "./components/techs";
 import Educationn from "./components/education";
-import Project from "./components/projects";
 import Footer from "./components/footer";
 
 const App = () => (
@@ -17,11 +17,11 @@ const App = () => (
     <main>
       <Hero />
       <Profile />
+      <Projects />
       {/* old sections, moving these over one by one */}
       <div className="container mx-auto px-7">
         <Techs />
         <Educationn />
-        <Project />
         <Footer />
       </div>
     </main>
