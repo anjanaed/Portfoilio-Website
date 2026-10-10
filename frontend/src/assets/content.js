@@ -197,3 +197,10 @@ export const voiceSteps = [
   { title: "LLM", sub: "Via Ballerina Adapter" },
   { title: "Text to Speech", sub: "Deepgram / ElevenLabs" },
 ];
+
+export const defundSteps = [
+  { title: "Contributors fund", sub: "Capital goes into escrow, not to the project" },
+  { title: "Milestone proof", sub: "The team submits proof of completed work" },
+  { title: "Contributors vote", sub: "Votes are weighted by contribution" },
+  { title: "Funds released", sub: "Only a verified milestone unlocks the next tranche" },
+];

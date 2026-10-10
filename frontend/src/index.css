@@ -363,6 +363,18 @@ section[id] { scroll-margin-top: 24px; }
 .vstep-title { font-size: 18px; font-weight: 700; letter-spacing: -.01em; line-height: 1.2; }
 .vstep-sub { margin-top: 2px; font-size: 14px; color: var(--muted); }
 
+/* DeFund */
+.defund { padding: 36px 32px; }
+.numbered { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 18px; }
+.numbered li { display: flex; gap: 14px; align-items: flex-start; }
+.num {
+  flex: 0 0 34px; width: 34px; height: 34px; border-radius: 50%;
+  background: var(--accent); color: var(--bg); font-weight: 500; font-size: 12px;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.step-title { font-size: 17px; font-weight: 700; line-height: 1.25; }
+.step-sub { margin-top: 2px; font-size: 14px; color: var(--muted); }
+
 /* ---------- hover effects ---------- */
 .btn-red:hover { transform: translateY(-3px); }
 .btn-light:hover { transform: translateY(-3px); background: #fff; }

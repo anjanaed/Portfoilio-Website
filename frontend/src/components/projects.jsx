@@ -5,6 +5,7 @@ import {
   vaultFeatures,
   voicePoints,
   voiceSteps,
+  defundSteps,
 } from "../assets/content";
 import { Eyebrow, FeatureList, LinkRow, Tags } from "./ui";
 
@@ -89,6 +90,36 @@ const VoicePipeline = () => (
   </article>
 );
 
+const DeFund = () => (
+  <article className="card span-4 project defund">
+    <div>
+      <p className="mono kicker">Chapter 03 · Decentralized crowdfunding</p>
+      <h3 className="display project-title">DeFund</h3>
+      <p className="lead lead-spaced">
+        Crowdfunding platforms fail when all the capital is released upfront, leaving contributors exposed to abandonment and fraud. DeFund closes that trust gap by building accountability into the protocol: funds sit in smart-contract escrow, and are released in stages only when contributors vote that a milestone, backed by proof of work, is complete.
+      </p>
+    </div>
+    <ol className="numbered">
+      {defundSteps.map((step, i) => (
+        <li key={step.title}>
+          <span className="mono num">{pad(i + 1)}</span>
+          <div>
+            <p className="display step-title">{step.title}</p>
+            <p className="step-sub">{step.sub}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+    <Tags className="push-down" items={["Solidity", "IPFS", "JavaScript", "React"]} />
+    <LinkRow
+      items={[
+        { label: "Visit DeFund", href: links.defundLive },
+        { label: "View repository", href: links.defundRepo },
+      ]}
+    />
+  </article>
+);
+
 const Projects = () => (
   <section id="work" className="section">
     <div className="wrap">
@@ -98,6 +129,7 @@ const Projects = () => (
       <div className="g12 section-body">
         <StryderVault />
         <VoicePipeline />
+        <DeFund />
       </div>
     </div>
   </section>
