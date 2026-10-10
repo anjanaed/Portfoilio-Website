@@ -375,6 +375,20 @@ section[id] { scroll-margin-top: 24px; }
 .step-title { font-size: 17px; font-weight: 700; line-height: 1.25; }
 .step-sub { margin-top: 2px; font-size: 14px; color: var(--muted); }
 
+/* DeGov */
+.degov { padding: 36px 40px; }
+.tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.tile { padding: 16px 18px; border: 1px solid rgba(190, 180, 255, .16); border-radius: 14px; background: rgba(7, 6, 26, .45); }
+.tile-title { margin-top: 12px; }
+.tile-body { margin-top: 4px; font-size: 14px; color: var(--muted); text-wrap: pretty; }
+
+/* EmpSync */
+.empsync { padding: 36px; gap: 22px; }
+.features-ruled {
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: 18px 28px; padding-top: 22px; border-top: 1px solid var(--line);
+}
+
 /* ---------- hover effects ---------- */
 .btn-red:hover { transform: translateY(-3px); }
 .btn-light:hover { transform: translateY(-3px); background: #fff; }

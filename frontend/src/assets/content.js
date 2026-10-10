@@ -204,3 +204,29 @@ export const defundSteps = [
   { title: "Contributors vote", sub: "Votes are weighted by contribution" },
   { title: "Funds released", sub: "Only a verified milestone unlocks the next tranche" },
 ];
+
+export const degovFeatures = [
+  { icon: "voting", title: "Voting", body: "Ballots recorded on-chain" },
+  { icon: "petitions", title: "Petitions", body: "Public, verifiable support" },
+  { icon: "whistleblowing", title: "Whistleblowing", body: "Reports that cannot be quietly erased" },
+  { icon: "spending", title: "Spending tracking", body: "Public money followed end to end" },
+];
+
+export const empsyncPoints = [
+  {
+    title: "Full-stack architecture",
+    body: "Led the team and designed the frontend, backend and database for the HR processes.",
+  },
+  {
+    title: "Salary and pay slips",
+    body: "A custom algorithm computes salaries, and pay slip PDFs are generated automatically.",
+  },
+  {
+    title: "Dual authentication flows",
+    body: "Separate Auth0 flows for tenant-level users and super admin access.",
+  },
+  {
+    title: "CI/CD and deployment",
+    body: "Automated testing and deployment pipelines, with SSL and performance tuning for lower latency.",
+  },
+];

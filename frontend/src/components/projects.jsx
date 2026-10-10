@@ -6,10 +6,47 @@ import {
   voicePoints,
   voiceSteps,
   defundSteps,
+  degovFeatures,
+  empsyncPoints,
 } from "../assets/content";
 import { Eyebrow, FeatureList, LinkRow, Tags } from "./ui";
 
 const pad = (n) => String(n).padStart(2, "0");
+
+const DegovIcon = ({ name }) => {
+  const paths = {
+    voting: (
+      <>
+        <path d="M9 11l3 3L22 4" />
+        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+      </>
+    ),
+    petitions: (
+      <>
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+        <path d="M14 2v6h6" />
+        <path d="M8 13h8M8 17h8" />
+      </>
+    ),
+    whistleblowing: (
+      <>
+        <path d="M3 11l18-5v12L3 14v-3z" />
+        <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
+      </>
+    ),
+    spending: (
+      <>
+        <path d="M3 3v18h18" />
+        <path d="M7 14l4-4 3 3 5-6" />
+      </>
+    ),
+  };
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      {paths[name]}
+    </svg>
+  );
+};
 
 const StryderVault = () => (
   <article className="card span-12 project vault">
@@ -120,6 +157,57 @@ const DeFund = () => (
   </article>
 );
 
+const DeGov = () => (
+  <article className="card span-6 project degov">
+    <div>
+      <p className="mono kicker">Chapter 04 · Transparent governance on-chain</p>
+      <h3 className="display project-title">DeGov</h3>
+      <p className="lead lead-spaced">
+        A full-stack platform for government transparency: voting, petitions, whistleblowing and public spending tracking. Blockchain calls sit in their own microservice, with Web3 wallet support on the Sepolia testnet.
+      </p>
+    </div>
+    <div className="tiles">
+      {degovFeatures.map((item) => (
+        <div key={item.title} className="tile">
+          <DegovIcon name={item.icon} />
+          <p className="display step-title tile-title">{item.title}</p>
+          <p className="tile-body">{item.body}</p>
+        </div>
+      ))}
+    </div>
+    <Tags items={["Solidity", "Ballerina", "React", "PostgreSQL"]} />
+    <LinkRow
+      className="push-down"
+      items={[
+        { label: "Visit DeGov", href: links.degovLive },
+        { label: "View repository", href: links.degovRepo },
+      ]}
+    />
+  </article>
+);
+
+const EmpSync = () => (
+  <article className="card span-6 project empsync">
+    <div>
+      <p className="mono kicker">Chapter 05 · Employee Management System</p>
+      <h3 className="display project-title">EmpSync</h3>
+      <p className="mono meta meta-spaced">2025 Q1 – Q3</p>
+      <p className="lead lead-spaced">
+        A software as a service (SaaS) based employee management system designed to handle core HR tasks and meal handling processes. It was a team project.
+      </p>
+    </div>
+    <FeatureList items={empsyncPoints} className="features features-ruled" />
+    <Tags items={["React", "NestJS", "PostgreSQL", "Prisma (ORM)", "Auth0"]} />
+    <LinkRow
+      className="push-down"
+      items={[
+        { label: "Visit EmpSync", href: links.empsyncLive },
+        { label: "View repository", href: links.empsyncRepo },
+      ]}
+    />
+  </article>
+);
+
 const Projects = () => (
   <section id="work" className="section">
     <div className="wrap">
@@ -130,6 +218,8 @@ const Projects = () => (
         <StryderVault />
         <VoicePipeline />
         <DeFund />
+        <DeGov />
+        <EmpSync />
       </div>
     </div>
   </section>
