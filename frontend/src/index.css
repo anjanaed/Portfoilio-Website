@@ -389,6 +389,17 @@ section[id] { scroll-margin-top: 24px; }
   gap: 18px 28px; padding-top: 22px; border-top: 1px solid var(--line);
 }
 
+/* Tech stack + more work */
+.stack { margin-top: 48px; }
+.stack-tags { margin-top: 20px; }
+.more {
+  margin-top: 40px; padding: 36px 44px;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px 40px;
+}
+.more-copy { min-width: 0; flex: 1 1 320px; }
+.more-title { margin-top: 12px; font-size: clamp(24px, 2.6vw, 32px); font-weight: 800; letter-spacing: -.02em; line-height: 1.15; text-wrap: balance; }
+.more-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
 /* ---------- hover effects ---------- */
 .btn-red:hover { transform: translateY(-3px); }
 .btn-light:hover { transform: translateY(-3px); background: #fff; }

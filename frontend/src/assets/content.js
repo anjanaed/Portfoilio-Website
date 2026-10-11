@@ -230,3 +230,23 @@ export const empsyncPoints = [
     body: "Automated testing and deployment pipelines, with SSL and performance tuning for lower latency.",
   },
 ];
+
+export const techStack = [
+  "JavaScript / TypeScript",
+  "Python",
+  "C",
+  "Solidity",
+  "Node.js / Express.js",
+  "NestJS",
+  "Laravel",
+  "Ballerina",
+  "React",
+  "Next.js",
+  "MySQL",
+  "MongoDB",
+  "PostgreSQL",
+  "AWS",
+  "CI/CD (GitHub Actions)",
+  "Docker",
+  "Firebase & Auth0 Authentication",
+];
