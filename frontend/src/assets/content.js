@@ -250,3 +250,21 @@ export const techStack = [
   "Docker",
   "Firebase & Auth0 Authentication",
 ];
+
+export const journey = [
+  {
+    when: "Now · 2023 – 2027",
+    title: "B.Sc. (Hons) Information Technology & Management",
+    place: "University of Moratuwa, Sri Lanka",
+  },
+  {
+    when: "Internship · 2026",
+    title: "Software Engineering Intern",
+    place: "WSO2, Colombo, Sri Lanka",
+  },
+  {
+    when: "Earlier · 2019 – 2022",
+    title: "G.C.E Advanced Level, Physical Science",
+    place: "Bandaranayake College, Gampaha",
+  },
+];
