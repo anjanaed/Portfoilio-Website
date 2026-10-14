@@ -1,6 +1,9 @@
 /* ==========================================================================
    Portfolio styles (v2 redesign).
    Fonts load from index.html.
+
+   Breakpoints (max-width): 1180 small laptop, 1000 hero stacks,
+   900 tablet, 620 phone, 400 small phone, 350 very small phone.
    ========================================================================== */
 
 :root {
@@ -147,7 +150,9 @@ section[id] { scroll-margin-top: 24px; }
 .hero-ctas { margin-top: 56px; display: flex; flex-wrap: wrap; gap: 14px; }
 
 /* ---------- 3D hero scene (pure CSS) ---------- */
-.stage-wrap { width: 520px; height: 520px; flex: 0 0 auto; }
+/* --s scales the whole scene on smaller screens; the negative margin
+   shrinks its layout box to match, so nothing around it shifts. */
+.stage-wrap { --s: 1; width: 520px; height: 520px; flex: 0 0 auto; }
 .stage { position: relative; width: 520px; height: 520px; perspective: 1300px; }
 .halo {
   position: absolute; left: 50%; top: 50%; width: 460px; height: 460px; margin: -230px 0 0 -230px; border-radius: 50%;
@@ -218,7 +223,7 @@ section[id] { scroll-margin-top: 24px; }
 .chipin {
   display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 999px;
   border: 1px solid rgba(190, 180, 255, .32); background: rgba(14, 10, 44, .86); color: var(--ink);
-  font-size: 12px; letter-spacing: .04em; animation: floaty 7s ease-in-out infinite;
+  font-size: 12px; letter-spacing: .04em; white-space: nowrap; animation: floaty 7s ease-in-out infinite;
 }
 .chipin i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); display: block; }
 @keyframes floaty { 0%, 100% { transform: translateY(-8px); } 50% { transform: translateY(10px); } }
@@ -428,3 +433,155 @@ a:focus-visible, button:focus-visible { outline: 2px solid #fff; outline-offset:
   .pf *, .pf *::before, .pf *::after { animation: none !important; transition: none !important; }
 }
 
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+/* Small laptops: shrink the 3D scene so the hero stays side by side,
+   and give the two-column project cards the full row. */
+@media (max-width: 1180px) {
+  .stage-wrap {
+    --s: .8;
+    transform: scale(var(--s)); transform-origin: center;
+    margin: calc(-260px * (1 - var(--s)));
+  }
+  .hero-row { min-height: 620px; }
+  .hero-copy { flex-basis: 440px; }
+
+  .vault .features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .voice, .defund { grid-column: 1 / -1; }
+  .c2grid { align-items: start; }
+  .vflow, .vstep { flex: 0 0 auto; }
+  .defund {
+    display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+    gap: 26px 48px; align-content: start; padding: 36px;
+  }
+  .defund > :first-child, .defund .tags, .defund .links { grid-column: 1; }
+  .defund .numbered { grid-column: 2; grid-row: 1 / span 3; align-self: center; }
+}
+
+/* Hero stacks: copy first, scene centred below. */
+@media (max-width: 1000px) {
+  .hero-row { min-height: 0; justify-content: center; padding-top: 32px; padding-bottom: 24px; gap: 8px; }
+  .hero-copy { flex-basis: 100%; max-width: 680px; margin-top: 0; }
+  .hero-title { font-size: clamp(34px, 5.6vw, 56px); }
+
+  /* Pipeline: 3 nodes on the first row, 2 wider ones on the second.
+     nth-child(n+7) is nodes 4 and 5 (connector divs sit between nodes). */
+  .pipeline { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+  .pipeline .node { grid-column: span 2; }
+  .pipeline .node:nth-child(n+7) { grid-column: span 3; }
+  .pipe-link { display: none; }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  .navlinks { display: none; }
+
+  .section { padding: 88px 0 24px; }
+  .section-first { padding-top: 72px; }
+  .section-contact { padding: 96px 0 48px; }
+  .section-body { margin-top: 40px; }
+
+  .g12 > * { grid-column: 1 / -1; grid-row: auto; }
+  .c2grid { grid-template-columns: minmax(0, 1fr); }
+  .problems, .location { min-height: 0; }
+  .location { flex-direction: row; align-items: center; }
+  .location .orbit { flex: 0 0 220px; width: 220px; }
+}
+
+/* Phones */
+@media (max-width: 620px) {
+  .wrap { padding: 0 20px; }
+
+  .nav-row { height: 76px; gap: 12px; }
+  .logomark { font-size: 30px; }
+  .nav-actions { gap: 8px; }
+
+  .stage-wrap { --s: .62; }
+  .hero-row { padding-top: 20px; gap: 0; }
+  .hero-intro { gap: 22px; }
+  .hero-name { font-size: clamp(38px, 11.5vw, 56px); }
+  .namebtn { text-underline-offset: 8px; }
+  .hero-title { margin-top: 32px; font-size: clamp(30px, 8.6vw, 42px); }
+  .hero-lede { margin-top: 24px; font-size: 16.5px; }
+  .hero-ctas { margin-top: 32px; gap: 12px; }
+
+  .section { padding: 64px 0 16px; }
+  .section-first { padding-top: 40px; }
+  .section-contact { padding: 72px 0 40px; }
+  .section-body { margin-top: 32px; }
+  .section-title { margin-top: 14px; font-size: clamp(28px, 8.4vw, 40px); }
+  .g12 { gap: 16px; }
+
+  .card { border-radius: 22px; }
+  .problems, .location, .vault, .voice, .defund, .degov, .empsync, .more { padding: 24px; }
+  .vault, .defund { gap: 26px; }
+
+  .problem-text { font-size: 16px; }
+  .pslide { gap: 24px; }
+  .problems { gap: 20px; }
+  .location { flex-direction: column; align-items: stretch; }
+  .location .orbit { flex: none; width: 100%; height: 120px; }
+  .location-city { font-size: 26px; }
+
+  .defund { display: flex; flex-direction: column; }
+  .project-title { font-size: clamp(26px, 7.4vw, 32px); }
+  .project-title-xl { font-size: clamp(28px, 8vw, 36px); }
+  .lead { font-size: 15.5px; }
+  .features { gap: 20px; }
+  .vault .features { grid-template-columns: minmax(0, 1fr); }
+
+  .vault-aside { align-items: flex-start; }
+  .pipeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pipeline .node, .pipeline .node:nth-child(n+7) { grid-column: auto; }
+  .pipeline .node:last-child { grid-column: 1 / -1; }
+  .node-label { font-size: 17px; }
+
+  .vpanel { padding: 20px; }
+  .vstep { padding-bottom: 16px; }
+  .vstep-title { font-size: 16px; }
+
+  .stack { margin-top: 36px; }
+  .stack-tags { margin-top: 16px; gap: 8px; }
+  .tag { font-size: 11px; padding: 5px 10px; }
+  .more { margin-top: 28px; }
+
+  .timeline { gap: 36px; }
+  .tl { padding-left: 30px; }
+  .tl-title { font-size: 21px; }
+
+  .contact-card { padding: 32px 24px; }
+  .contact-title { font-size: clamp(32px, 9vw, 44px); margin-top: 18px; }
+  .contact-lede { font-size: 16.5px; margin-top: 18px; }
+  .contact-actions { margin-top: 28px; }
+
+  .site-footer { padding: 12px 0 40px; }
+  .footer-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
+/* Narrow phones: DeGov tiles become one column, icon beside the text. */
+@media (max-width: 480px) {
+  .tiles { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .tile { display: grid; grid-template-columns: 22px minmax(0, 1fr); column-gap: 14px; align-items: start; padding: 14px 16px; }
+  .tile svg { grid-row: 1 / span 2; margin-top: 1px; }
+  .tile-title { margin-top: 0; }
+}
+
+/* Small phones: full-width buttons. */
+@media (max-width: 400px) {
+  .stage-wrap { --s: .56; }
+  .hero-ctas .btn, .contact-actions .btn, .more-actions .btn { flex: 1 1 auto; justify-content: center; }
+  .contact-actions .btn { padding: 0 18px; }
+}
+
+/* Very small phones (320px class). */
+@media (max-width: 350px) {
+  .wrap { padding: 0 16px; }
+  .stage-wrap { --s: .5; }
+  .problems, .location, .vault, .voice, .defund, .degov, .empsync, .more { padding: 20px; }
+  .contact-card { padding: 28px 20px; }
+  .pipeline { grid-template-columns: minmax(0, 1fr); }
+  .pipeline .node:last-child { grid-column: auto; }
+}
