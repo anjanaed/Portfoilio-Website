@@ -13,6 +13,16 @@ const Cube = ({ kind }) => (
   </div>
 );
 
+// True only when focus came from the keyboard, so a tap on touch screens
+// does not leave the photo stuck open.
+const isKeyboardFocus = (el) => {
+  try {
+    return el.matches(":focus-visible");
+  } catch {
+    return false;
+  }
+};
+
 const Hero = () => {
   const tiltRef = useRef(null);
   const [hovered, setHovered] = useState(false);
@@ -46,9 +56,9 @@ const Hero = () => {
                 className="namebtn"
                 aria-label="Anjana Edirisinghe, show my photo"
                 aria-pressed={pinned}
-                onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
-                onFocus={() => setHovered(true)}
+                onPointerEnter={(e) => e.pointerType === "mouse" && setHovered(true)}
+                onPointerLeave={(e) => e.pointerType === "mouse" && setHovered(false)}
+                onFocus={(e) => isKeyboardFocus(e.currentTarget) && setHovered(true)}
                 onBlur={() => setHovered(false)}
                 onClick={() => setPinned((p) => !p)}
               >

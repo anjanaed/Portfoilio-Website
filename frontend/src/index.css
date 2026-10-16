@@ -18,9 +18,9 @@
   --ease-in-out: cubic-bezier(.65, 0, .35, 1);
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-body { margin: 0; background: var(--bg); -webkit-font-smoothing: antialiased; }
+body { margin: 0; background: var(--bg); -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; }
 *, *::before, *::after { box-sizing: border-box; }
 a { color: inherit; text-decoration: none; }
 h1, h2, h3, p { margin: 0; }
@@ -442,24 +442,36 @@ section[id] { scroll-margin-top: 24px; }
 .footer-note { font-size: 12px; letter-spacing: .08em; color: var(--faint); }
 .footer-top { font-size: 12px; letter-spacing: .08em; }
 
-/* ---------- hover effects ---------- */
-.btn-red:hover { transform: translateY(-3px); }
-.btn-light:hover { transform: translateY(-3px); background: #fff; }
-.btn-ghost:hover { border-color: #fff; background: rgba(255, 255, 255, .06); transform: translateY(-3px); }
-.textlink:hover { gap: 14px; border-color: var(--accent); }
-.logomark:hover { transform: translateY(-2px); }
-.navlink:hover { color: #fff; }
-.menu-btn:hover { border-color: #fff; background: rgba(255, 255, 255, .08); }
-.mobile-link:hover { background: rgba(255, 255, 255, .06); }
-.namebtn:hover { text-decoration-color: var(--accent); text-decoration-style: solid; }
-.card:hover { transform: translateY(-5px); border-color: rgba(255, 77, 109, .55); }
-.dot:hover::after { background: rgba(190, 180, 255, .7); }
-.arrowbtn:hover { border-color: #fff; background: rgba(255, 255, 255, .08); transform: translateY(-2px); }
+/* ---------- hover effects (mouse and trackpad only, so taps never stick) ---------- */
+@media (hover: hover) {
+  .btn-red:hover { transform: translateY(-3px); }
+  .btn-light:hover { transform: translateY(-3px); background: #fff; }
+  .btn-ghost:hover { border-color: #fff; background: rgba(255, 255, 255, .06); transform: translateY(-3px); }
+  .textlink:hover { gap: 14px; border-color: var(--accent); }
+  .logomark:hover { transform: translateY(-2px); }
+  .navlink:hover { color: #fff; }
+  .menu-btn:hover { border-color: #fff; background: rgba(255, 255, 255, .08); }
+  .mobile-link:hover { background: rgba(255, 255, 255, .06); }
+  .namebtn:hover { text-decoration-color: var(--accent); text-decoration-style: solid; }
+  .card:hover { transform: translateY(-5px); border-color: rgba(255, 77, 109, .55); }
+  .dot:hover::after { background: rgba(190, 180, 255, .7); }
+  .arrowbtn:hover { border-color: #fff; background: rgba(255, 255, 255, .08); transform: translateY(-2px); }
+}
 
 /* ---------- a11y ---------- */
 a:focus-visible, button:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) {
   .pf *, .pf *::before, .pf *::after { animation: none !important; transition: none !important; }
+}
+
+/* ---------- touch screens: bigger hit areas ---------- */
+@media (pointer: coarse) {
+  .dot { width: 26px; height: 40px; }
+  .dot::after { left: 7px; right: 7px; }
+  .dot.on { width: 54px; }
+  .arrowbtn { width: 44px; height: 44px; }
+  .textlink { padding: 8px 0; }
+  .links { gap: 4px 28px; }
 }
 
 /* ==========================================================================
