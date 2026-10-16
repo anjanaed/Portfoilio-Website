@@ -34,6 +34,43 @@ const Profile = () => {
     lastChange.current = Date.now();
   };
 
+  // On tablets and phones the carousel takes the height of the current slide,
+  // so short slides do not leave a big empty gap.
+  const viewRef = useRef(null);
+  const slideRefs = useRef([]);
+  useEffect(() => {
+    const view = viewRef.current;
+    const slide = slideRefs.current[idx];
+    if (!view || !slide || !window.matchMedia) return undefined;
+    const mq = window.matchMedia("(max-width: 900px)");
+    const fit = () => {
+      view.style.height = mq.matches ? `${slide.offsetHeight}px` : "";
+    };
+    fit();
+    const ro = typeof ResizeObserver === "undefined" ? null : new ResizeObserver(fit);
+    ro?.observe(slide);
+    mq.addEventListener?.("change", fit);
+    return () => {
+      ro?.disconnect();
+      mq.removeEventListener?.("change", fit);
+    };
+  }, [idx]);
+
+  // Horizontal swipe on touch screens moves between slides.
+  const touchStart = useRef(null);
+  const onTouchStart = (e) => {
+    const t = e.touches[0];
+    touchStart.current = { x: t.clientX, y: t.clientY };
+  };
+  const onTouchEnd = (e) => {
+    if (!touchStart.current) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - touchStart.current.x;
+    const dy = t.clientY - touchStart.current.y;
+    touchStart.current = null;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) goTo(dx < 0 ? idx + 1 : idx - 1);
+  };
+
   return (
     <section id="profile" className="section section-first">
       <div className="wrap">
@@ -51,10 +88,17 @@ const Profile = () => {
             onFocus={pause}
             onBlur={resume}
           >
-            <div className="pview">
+            <div className="pview" ref={viewRef} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
               <div className="ptrack" style={{ transform: `translateX(${-idx * 100}%)` }}>
                 {problems.map((problem, i) => (
-                  <div key={i} className={`pslide${i === idx ? " on" : ""}`} aria-hidden={i !== idx}>
+                  <div
+                    key={i}
+                    ref={(el) => {
+                      slideRefs.current[i] = el;
+                    }}
+                    className={`pslide${i === idx ? " on" : ""}`}
+                    aria-hidden={i !== idx}
+                  >
                     <p className="problem-text">{problem.text}</p>
                     <Tags items={problem.tags} />
                   </div>
