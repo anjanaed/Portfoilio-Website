@@ -149,7 +149,7 @@ const Profile = () => {
             </svg>
             <div>
               <p className="mono label">Based in</p>
-              <p className="display location-city">Colombo, Sri Lanka</p>
+              <p className="display location-city">Colombo, Sri&nbsp;Lanka</p>
               <p className="location-tz">UTC +05:30</p>
             </div>
           </div>

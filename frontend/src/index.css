@@ -314,7 +314,7 @@ section[id] { scroll-margin-top: 24px; }
 .orb { transform-origin: 50% 50%; animation: orbit 18s linear infinite; }
 .orb2 { transform-origin: 50% 50%; animation: orbit 28s linear infinite reverse; }
 @keyframes orbit { to { transform: rotate(360deg); } }
-.location-city { margin-top: 6px; font-size: 32px; font-weight: 700; letter-spacing: -.02em; }
+.location-city { margin-top: 6px; font-size: 32px; font-weight: 700; letter-spacing: -.02em; line-height: 1.15; }
 .location-tz { margin-top: 4px; color: var(--muted); }
 
 /* ---------- projects ---------- */
