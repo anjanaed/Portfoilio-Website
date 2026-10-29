@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { links, navSections } from "../assets/content";
+import { LinkedInIcon } from "./ui";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -50,11 +51,7 @@ const Navbar = () => {
             <span className="btn-text">GitHub</span>
           </a>
           <a className="btn btn-ghost btn-sm nav-social" href={links.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
-              <rect x="2" y="9" width="4" height="12" />
-              <circle cx="4" cy="4" r="2" />
-            </svg>
+            <LinkedInIcon />
             <span className="btn-text">LinkedIn</span>
           </a>
           <button
