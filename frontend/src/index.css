@@ -75,6 +75,7 @@ section[id] { scroll-margin-top: 24px; }
   border-bottom: 1px solid transparent;
   transition: gap .2s, border-color .2s;
 }
+.textlink-disabled { opacity: .45; cursor: not-allowed; }
 .links { display: flex; flex-wrap: wrap; gap: 12px 28px; }
 
 /* ---------- nav ---------- */
@@ -448,6 +449,7 @@ section[id] { scroll-margin-top: 24px; }
   .btn-light:hover { transform: translateY(-3px); background: #fff; }
   .btn-ghost:hover { border-color: #fff; background: rgba(255, 255, 255, .06); transform: translateY(-3px); }
   .textlink:hover { gap: 14px; border-color: var(--accent); }
+  .textlink-disabled:hover { gap: 8px; border-color: transparent; }
   .logomark:hover { transform: translateY(-2px); }
   .navlink:hover { color: #fff; }
   .menu-btn:hover { border-color: #fff; background: rgba(255, 255, 255, .08); }

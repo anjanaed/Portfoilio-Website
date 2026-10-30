@@ -58,7 +58,7 @@ const StryderVault = () => (
       </div>
       <div className="vault-aside">
         <p className="mono meta">2026 Q3 – Now</p>
-        <LinkRow items={[{ label: "Visit Stryder Vault", href: links.stryderVault }]} />
+        <LinkRow items={[{ label: "Visit Stryder Vault", href: links.stryderVault, alwaysShow: true }]} />
       </div>
     </div>
 
@@ -151,8 +151,8 @@ const DeFund = () => (
     <Tags className="push-down" items={["Solidity", "IPFS", "JavaScript", "React"]} />
     <LinkRow
       items={[
-        { label: "Visit DeFund", href: links.defundLive },
-        { label: "View repository", href: links.defundRepo },
+        { label: "Visit DeFund", href: links.defundLive, alwaysShow: true },
+        { label: "View repository", href: links.defundRepo, alwaysShow: true },
       ]}
     />
   </article>

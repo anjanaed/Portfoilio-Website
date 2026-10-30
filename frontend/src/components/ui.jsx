@@ -35,18 +35,26 @@ export const LinkedInIcon = ({ size = 16 }) => (
 );
 
 // Renders text links with an arrow. Entries without an href are skipped,
-// and the row is hidden when none are left.
+// unless marked `alwaysShow`, which renders a disabled "coming soon" link.
+// The row is hidden when nothing is left.
 export const LinkRow = ({ items, className = "" }) => {
-  const shown = items.filter((item) => item.href);
+  const shown = items.filter((item) => item.href || item.alwaysShow);
   if (shown.length === 0) return null;
   return (
     <div className={`links ${className}`}>
-      {shown.map((item) => (
-        <a key={item.label} className="textlink" href={item.href} {...externalProps(item.href)}>
-          {item.label}
-          <ArrowUpRight />
-        </a>
-      ))}
+      {shown.map((item) =>
+        item.href ? (
+          <a key={item.label} className="textlink" href={item.href} {...externalProps(item.href)}>
+            {item.label}
+            <ArrowUpRight />
+          </a>
+        ) : (
+          <span key={item.label} className="textlink textlink-disabled" aria-disabled="true" title="Link coming soon">
+            {item.label}
+            <ArrowUpRight />
+          </span>
+        )
+      )}
     </div>
   );
 };
