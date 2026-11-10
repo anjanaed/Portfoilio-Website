@@ -1,32 +1,28 @@
-import React from 'react'
-import Navbar from './components/navbar'
-import Intro from './components/intro'
-import About from './components/about'
-import Techs from './components/techs'
-import Educationn from './components/education'
-import Project from './components/projects'
-import Footer from './components/footer'
+import Navbar from "./components/navbar";
+import Hero from "./components/hero";
+import Profile from "./components/profile";
+import Projects from "./components/projects";
+import Journey from "./components/journey";
+import Contact from "./components/contact";
+import Footer from "./components/footer";
 
-const App=()=>{
+const App = () => (
+  <div className="pf" id="top">
+    <div className="glow glow-1" aria-hidden="true" />
+    <div className="glow glow-2" aria-hidden="true" />
+    <div className="glow glow-3" aria-hidden="true" />
+    <div className="dotgrid" aria-hidden="true" />
 
-  return(
-    <div className=" text-neutral-300 antialiased">
-      <div className="fixed top-0 -z-10 h-full w-full">
-      <div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#61e_150%)]"></div></div>
-      <div className="container mx-auto px-7">
-        <Navbar/>
-        <Intro/>
-        <About/>
-        <Techs/>
-        <Educationn/>
-        <Project/>
-        <Footer/>
-      </div>
-    </div>
-    
-  )
+    <Navbar />
+    <main>
+      <Hero />
+      <Profile />
+      <Projects />
+      <Journey />
+      <Contact />
+    </main>
+    <Footer />
+  </div>
+);
 
-
-}
-
-export default App
+export default App;

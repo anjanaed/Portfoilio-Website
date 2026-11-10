@@ -8,19 +8,20 @@ This is the personal portfolio of Anjana Edirisinghe, a 3rd year IT & Management
 
 ## Features
 
-- **Responsive Design**: Optimized for mobile, tablet, and desktop viewing
-- **Smooth Animations**: Powered by Framer Motion for engaging user interactions
-- **Project Showcase**: Detailed descriptions of my key projects with links to GitHub and live demos
-- **Education Timeline**: Overview of my academic background
-- **Technology Stack**: Display of skills and technologies I work with
+- **Responsive Design**: Optimized for mobile, tablet, and desktop, with a mobile menu and touch-friendly controls
+- **3D Hero**: Pure CSS 3D scene with a photo reveal on the name
+- **Problems Carousel**: Short write-ups of problems I have solved, with autoplay and swipe support
+- **Project Showcase**: Detailed project cards with pipelines, highlights, and links to GitHub and live demos
+- **Journey Timeline**: Education and work experience
+- **Technology Stack**: Skills and technologies I work with
 - **Contact Information**: Ways to get in touch
 
 ## Technologies Used
 
 - **Frontend**: React 18, Vite
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **Icons**: React Icons
+- **Styling**: Plain CSS with custom properties
+- **Animations**: CSS keyframes and 3D transforms
+- **Fonts**: Bricolage Grotesque, Instrument Sans, Instrument Serif, JetBrains Mono (Google Fonts)
 - **Build Tool**: Vite
 - **Linting**: ESLint
 
@@ -58,7 +59,7 @@ frontend/
 ├── public/           # Static assets
 ├── src/
 │   ├── assets/       # Images, content data, and project screenshots
-│   ├── components/   # React components (Intro, About, Projects, etc.)
+│   ├── components/   # React components (Hero, Profile, Projects, Journey, etc.)
 │   ├── App.jsx       # Main app component
 │   ├── main.jsx      # Entry point
 │   └── index.css     # Global styles

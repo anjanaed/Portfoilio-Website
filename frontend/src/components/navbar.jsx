@@ -1,53 +1,94 @@
-import '../index.css'
-import {FaLinkedin} from "react-icons/fa"
-import {FaGithub} from "react-icons/fa"
-import {FaSquareXTwitter} from "react-icons/fa6"
-import {FaInstagram} from "react-icons/fa"
-import {motion} from "framer-motion"
+import { useEffect, useRef, useState } from "react";
+import { links, navSections } from "../assets/content";
 
+const Navbar = () => {
+  const [open, setOpen] = useState(false);
+  const headerRef = useRef(null);
+  const menuBtnRef = useRef(null);
 
-const Navbar=()=>{
+  // While the mobile menu is open, close it on Escape or a tap outside the header.
+  useEffect(() => {
+    if (!open) return undefined;
+    const onKey = (e) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        menuBtnRef.current?.focus();
+      }
+    };
+    const onPointerDown = (e) => {
+      if (!headerRef.current?.contains(e.target)) setOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onPointerDown);
+    };
+  }, [open]);
 
-    return (
-        <nav className="mb-20 flex items-center justify-between py-2">
-            <motion.div whileHover={{scale:1,rotate:360, color:"#3498db"}} style={{ cursor: "pointer" }}initial={{opacity:0, scale:0.1}} animate={{opacity:1,scale:1.5}} transition={{duration:2}} className="flex flex-shrink-0 items-center">
-                <span id="logo"onClick={()=>window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ","_blank")}>Ed</span>
-            </motion.div>
-            <motion.div initial={{opacity:0, y:-100}} animate={{opacity:1,y:0}} transition={{duration:0.8,delay:1.5}} className="m-7 flex items-center justify-center gap-5 lg:text-2xl">
-            <motion.div
-            initial={{ opacity: 1 }}
-            whileHover={{ scale: 1.4 }}
-            transition={{duration:0.5}}
-            style={{ display: "inline-block", cursor: "pointer" }}>
-            <FaLinkedin onClick={()=>window.open("https://www.linkedin.com/in/anjana-ed/","_blank")}/>
-        </motion.div>
-        <motion.div
-            initial={{ opacity: 1 }}
-            whileHover={{ scale: 1.4 }}
-            transition={{duration:0.5}}
-            style={{ display: "inline-block", cursor: "pointer" }}>
-            <FaGithub onClick={()=>window.open("https://github.com/anjanaed","_blank")}/>
-        </motion.div>
-        <motion.div
-            initial={{ opacity: 1 }}
-            whileHover={{ scale: 1.4 }}
-            transition={{duration:0.5}}
-            style={{ display: "inline-block", cursor: "pointer" }}>
-            <FaSquareXTwitter onClick={()=>window.open("https://x.com/anjanaape","_blank")}/>
-        </motion.div>
-        <motion.div
-            initial={{ opacity: 1 }}
-            whileHover={{ scale: 1.4 }}
-            transition={{duration:0.5}}
-            style={{ display: "inline-block", cursor: "pointer" }}>
-            <FaInstagram onClick={()=>window.open("https://www.instagram.com/anjana_ed_/","_blank")}/>
-        </motion.div>
-                
-                
-                
-            </motion.div>
+  return (
+    <header className="site-header" ref={headerRef}>
+      <div className="wrap nav-row">
+        <a href="#top" aria-label="Ed, back to top" className="logomark mono">
+          Ed<span className="cursor" aria-hidden="true">_</span>
+        </a>
+
+        <nav className="navlinks" aria-label="Primary">
+          {navSections.map((section) => (
+            <a key={section.id} className="navlink" href={`#${section.id}`}>
+              {section.label}
+            </a>
+          ))}
         </nav>
-    )
-}
 
-export default Navbar
+        <div className="nav-actions">
+          <a className="btn btn-ghost btn-sm nav-social" href={links.github} target="_blank" rel="noreferrer" aria-label="GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M16 18l6-6-6-6" />
+              <path d="M8 6l-6 6 6 6" />
+            </svg>
+            <span className="btn-text">GitHub</span>
+          </a>
+          <a className="btn btn-ghost btn-sm nav-social" href={links.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+            <span className="btn-text">LinkedIn</span>
+          </a>
+          <button
+            ref={menuBtnRef}
+            type="button"
+            className="menu-btn"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            onClick={() => setOpen((o) => !o)}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+              {open ? (
+                <path d="M6 6l12 12M18 6L6 18" />
+              ) : (
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              )}
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" className={`mobile-menu${open ? " open" : ""}`}>
+        <nav aria-label="Sections">
+          {navSections.map((section, i) => (
+            <a key={section.id} className="mobile-link" href={`#${section.id}`} onClick={() => setOpen(false)}>
+              <span className="mono mobile-link-num">{String(i + 1).padStart(2, "0")}</span>
+              <span className="display">{section.label}</span>
+            </a>
+          ))}
+        </nav>
+      </div>
+    </header>
+  );
+};
+
+export default Navbar;
