@@ -26,19 +26,35 @@ export const Tags = ({ items, className = "" }) => (
   </div>
 );
 
+export const LinkedInIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect x="2" y="9" width="4" height="12" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
+
 // Renders text links with an arrow. Entries without an href are skipped,
-// and the row is hidden when none are left.
+// unless marked `alwaysShow`, which renders a disabled "coming soon" link.
+// The row is hidden when nothing is left.
 export const LinkRow = ({ items, className = "" }) => {
-  const shown = items.filter((item) => item.href);
+  const shown = items.filter((item) => item.href || item.alwaysShow);
   if (shown.length === 0) return null;
   return (
     <div className={`links ${className}`}>
-      {shown.map((item) => (
-        <a key={item.label} className="textlink" href={item.href} {...externalProps(item.href)}>
-          {item.label}
-          <ArrowUpRight />
-        </a>
-      ))}
+      {shown.map((item) =>
+        item.href ? (
+          <a key={item.label} className="textlink" href={item.href} {...externalProps(item.href)}>
+            {item.label}
+            <ArrowUpRight />
+          </a>
+        ) : (
+          <span key={item.label} className="textlink textlink-disabled" aria-disabled="true" title="Link coming soon">
+            {item.label}
+            <ArrowUpRight />
+          </span>
+        )
+      )}
     </div>
   );
 };

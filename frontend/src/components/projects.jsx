@@ -58,7 +58,7 @@ const StryderVault = () => (
       </div>
       <div className="vault-aside">
         <p className="mono meta">2026 Q3 – Now</p>
-        <LinkRow items={[{ label: "Visit Stryder Vault", href: links.stryderVault }]} />
+        <LinkRow items={[{ label: "Visit Stryder Vault", href: links.stryderVault, alwaysShow: true }]} />
       </div>
     </div>
 
@@ -103,7 +103,7 @@ const VoicePipeline = () => (
           className="push-down"
           items={[
             { label: "View Documentation", href: links.voiceDocs },
-            { label: "View repository", href: links.voiceRepo },
+            { label: "View Repository", href: links.voiceRepo },
           ]}
         />
       </div>
@@ -133,6 +133,7 @@ const DeFund = () => (
     <div>
       <p className="mono kicker">Chapter 03 · Decentralized crowdfunding</p>
       <h3 className="display project-title">DeFund</h3>
+      <p className="mono meta meta-spaced">2025 Q3</p>
       <p className="lead lead-spaced">
         Crowdfunding platforms fail when all the capital is released upfront, leaving contributors exposed to abandonment and fraud. DeFund closes that trust gap by building accountability into the protocol: funds sit in smart-contract escrow, and are released in stages only when contributors vote that a milestone, backed by proof of work, is complete.
       </p>
@@ -151,8 +152,8 @@ const DeFund = () => (
     <Tags className="push-down" items={["Solidity", "IPFS", "JavaScript", "React"]} />
     <LinkRow
       items={[
-        { label: "Visit DeFund", href: links.defundLive },
-        { label: "View repository", href: links.defundRepo },
+        { label: "Visit DeFund", href: links.defundLive, alwaysShow: true },
+        { label: "View Repository", href: links.defundRepo, alwaysShow: true },
       ]}
     />
   </article>
@@ -163,6 +164,7 @@ const DeGov = () => (
     <div>
       <p className="mono kicker">Chapter 04 · Transparent governance on-chain</p>
       <h3 className="display project-title">DeGov</h3>
+      <p className="mono meta meta-spaced">2025 Q2</p>
       <p className="lead lead-spaced">
         A full-stack platform for government transparency: voting, petitions, whistleblowing and public spending tracking. Blockchain calls sit in their own microservice, with Web3 wallet support on the Sepolia testnet.
       </p>
@@ -181,7 +183,7 @@ const DeGov = () => (
       className="push-down"
       items={[
         { label: "Visit DeGov", href: links.degovLive },
-        { label: "View repository", href: links.degovRepo },
+        { label: "View Repository", href: links.degovRepo },
       ]}
     />
   </article>
@@ -203,7 +205,7 @@ const EmpSync = () => (
       className="push-down"
       items={[
         { label: "Visit EmpSync", href: links.empsyncLive },
-        { label: "View repository", href: links.empsyncRepo },
+        { label: "View Repository", href: links.empsyncRepo },
       ]}
     />
   </article>

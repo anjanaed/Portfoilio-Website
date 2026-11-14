@@ -1,5 +1,5 @@
 import { links } from "../assets/content";
-import { ArrowUpRight, Eyebrow } from "./ui";
+import { ArrowUpRight, Eyebrow, LinkedInIcon } from "./ui";
 
 const Contact = () => (
   <section id="contact" className="section section-contact">
@@ -14,8 +14,9 @@ const Contact = () => (
             {links.email}
             <ArrowUpRight />
           </a>
-          <a className="btn btn-ghost" href={links.linkedin} target="_blank" rel="noreferrer">
-            LinkedIn
+          <a className="btn btn-ghost" href={links.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <LinkedInIcon />
+            <span className="btn-text">LinkedIn</span>
           </a>
         </div>
       </div>
