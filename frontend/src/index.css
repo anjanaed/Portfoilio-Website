@@ -557,13 +557,15 @@ a:focus-visible, button:focus-visible { outline: 2px solid #fff; outline-offset:
   .mobile-menu { top: 70px; left: 16px; right: 16px; }
 
   .stage-wrap { --s: .62; }
+  /* Hero is centred on phones. */
   .hero-row { padding-top: 20px; gap: 0; }
-  .hero-intro { gap: 22px; }
+  .hero-copy { text-align: center; }
+  .hero-intro { gap: 22px; align-items: center; }
   .hero-name { font-size: clamp(38px, 11.5vw, 56px); }
-  .namebtn { text-underline-offset: 8px; }
+  .namebtn { text-underline-offset: 8px; text-align: center; }
   .hero-title { margin-top: 32px; font-size: clamp(30px, 8.6vw, 42px); }
-  .hero-lede { margin-top: 24px; font-size: 16.5px; }
-  .hero-ctas { margin-top: 32px; gap: 12px; }
+  .hero-lede { margin: 22px auto 0; font-size: 15px; line-height: 1.55; }
+  .hero-ctas { margin-top: 30px; gap: 12px; justify-content: center; }
 
   .section { padding: 64px 0 16px; }
   .section-first { padding-top: 40px; }
@@ -576,8 +578,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid #fff; outline-offset:
   .problems, .location, .vault, .voice, .defund, .degov, .empsync, .more { padding: 24px; }
   .vault, .defund { gap: 26px; }
 
-  .problem-text { font-size: 16px; }
-  .pslide { gap: 24px; }
+  /* Long-form text is set smaller on phones. */
+  .problem-text { font-size: 14.5px; line-height: 1.55; }
+  .pslide { gap: 20px; }
   .problems { gap: 20px; }
   .location { flex-direction: column; align-items: stretch; }
   .location .orbit { flex: none; width: 100%; height: 120px; }
@@ -586,19 +589,28 @@ a:focus-visible, button:focus-visible { outline: 2px solid #fff; outline-offset:
   .defund { display: flex; flex-direction: column; }
   .project-title { font-size: clamp(26px, 7.4vw, 32px); }
   .project-title-xl { font-size: clamp(28px, 8vw, 36px); }
-  .lead { font-size: 15.5px; }
-  .features { gap: 20px; }
+  .lead { font-size: 14px; line-height: 1.55; }
+  .lead-spaced { margin-top: 12px; }
+  .features { gap: 16px; }
   .vault .features { grid-template-columns: minmax(0, 1fr); }
+  .points { gap: 14px; padding-top: 20px; }
+  .feature-title { font-size: 15.5px; }
+  .feature-body { margin-top: 4px; font-size: 13.5px; line-height: 1.55; }
+  .step-title { font-size: 15.5px; }
+  .step-sub, .tile-body { font-size: 13px; }
+  .numbered { gap: 14px; }
 
   .vault-aside { align-items: flex-start; }
   .pipeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .pipeline .node, .pipeline .node:nth-child(n+7) { grid-column: auto; }
   .pipeline .node:last-child { grid-column: 1 / -1; }
-  .node-label { font-size: 17px; }
+  .node-label { font-size: 16px; }
+  .node-sub { font-size: 12px; }
 
   .vpanel { padding: 20px; }
   .vstep { padding-bottom: 16px; }
-  .vstep-title { font-size: 16px; }
+  .vstep-title { font-size: 15px; }
+  .vstep-sub { font-size: 13px; }
 
   .stack { margin-top: 36px; }
   .stack-tags { margin-top: 16px; gap: 8px; }
@@ -607,11 +619,12 @@ a:focus-visible, button:focus-visible { outline: 2px solid #fff; outline-offset:
 
   .timeline { gap: 36px; }
   .tl { padding-left: 30px; }
-  .tl-title { font-size: 21px; }
+  .tl-title { font-size: 19px; }
+  .tl-place { font-size: 14px; }
 
   .contact-card { padding: 32px 24px; }
   .contact-title { font-size: clamp(32px, 9vw, 44px); margin-top: 18px; }
-  .contact-lede { font-size: 16.5px; margin-top: 18px; }
+  .contact-lede { font-size: 15px; margin-top: 18px; }
   .contact-actions { margin-top: 28px; }
 
   .site-footer { padding: 12px 0 40px; }
